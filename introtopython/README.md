@@ -1,4 +1,4 @@
-# MITx 6.00.1x: Introduction to Computer Science and Programming Using Python
+# MITx 6.00.1x: Introduction to Computer Science and Programming Using Python :snake:
 
 https://courses.edx.org/courses/MITx/6.00.1x_5/1T2015/course/
 
