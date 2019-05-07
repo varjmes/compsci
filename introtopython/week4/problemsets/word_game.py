@@ -97,6 +97,17 @@ def getWordScore(word, n):
     returns: int >= 0
     """
 
+    if len(word) == 0:
+        return 0
+
+    letters = list(word)
+    total = sum(map(lambda x: SCRABBLE_LETTER_VALUES[x], letters))
+    total *= len(word)
+    if len(word) == n:
+        total += 50
+
+    return total
+
 #
 # Problem #2: Make sure you understand how this function works and what it does!
 #
