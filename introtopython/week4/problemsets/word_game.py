@@ -211,6 +211,8 @@ def calculateHandlen(hand):
     returns: integer
     """
 
+    return sum(hand.values())
+
 
 def playHand(hand, wordList, n):
     """
