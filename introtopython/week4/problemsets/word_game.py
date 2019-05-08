@@ -126,9 +126,9 @@ def displayHand(hand):
     hand: dictionary (string -> int)
     """
     for letter in hand.keys():
-        for j in range(hand[letter]):
+        for _ in range(hand[letter]):
             print(letter),              # print all on the same line
-    print()                             # print an empty line
+    print                         # print an empty line
 
 #
 # Problem #2: Make sure you understand how this function works and what it does!
@@ -182,7 +182,12 @@ def updateHand(hand, word):
     returns: dictionary (string -> int)
     """
 
-
+    cloneHand = hand.copy()
+    for l in word:
+        if cloneHand.get(l, 0):
+            cloneHand[l] -= 1
+    
+    return cloneHand
 #
 # Problem #3: Test word validity
 #
