@@ -203,6 +203,18 @@ def isValidWord(word, hand, wordList):
     wordList: list of lowercase strings
     """
 
+    handCopy = hand.copy()
+    isValid = False
+    if word in wordList:
+        for l in word:
+            if word.count(l) > handCopy.get(l, 0):
+                isValid = False
+                break
+            else:
+                isValid = True
+    
+    return isValid
+
 #
 # Problem #4: Playing a hand
 #
