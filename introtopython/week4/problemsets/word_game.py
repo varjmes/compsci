@@ -185,11 +185,13 @@ def updateHand(hand, word):
     for l in word:
         if cloneHand.get(l, 0):
             cloneHand[l] -= 1
-    
+
     return cloneHand
 #
 # Problem #3: Test word validity
 #
+
+
 def isValidWord(word, hand, wordList):
     """
     Returns True if word is in the wordList and is entirely
@@ -211,7 +213,7 @@ def isValidWord(word, hand, wordList):
                 break
             else:
                 isValid = True
-    
+
     return isValid
 
 #
@@ -269,12 +271,13 @@ def playHand(hand, wordList, n):
                 score = getWordScore(word, n)
                 total_score += score
                 hand = updateHand(hand, word)
-                print('"{}" earned {} points. Total: {} points'.format(word, score, total_score))
+                print('"{}" earned {} points. Total: {} points'.format(
+                    word, score, total_score))
             else:
                 print('Invalid word, please try again.')
 
         print
-        
+
     if calculateHandlen(hand) == 0:
         print('Run out of letters. Total score: {}'.format(total_score))
 
@@ -299,7 +302,8 @@ def playGame(wordList):
     currentHand = {}
 
     while True:
-        choice = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
+        choice = raw_input(
+            'Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
         if choice == 'r' and calculateHandlen(currentHand) == 0:
             print('You have not played a hand yet. Please play a new hand first!')
         elif choice == 'r':
@@ -313,6 +317,7 @@ def playGame(wordList):
             print('Invalid command.')
 
         print
+
 
 #
 # Build data structures used for entire session and play game

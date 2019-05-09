@@ -9,7 +9,7 @@ import time
 #
 def compChooseWord(hand, wordList, n):
     """
-    Given a hand and a wordList, find the word that gives 
+    Given a hand and a wordList, find the word that gives
     the maximum value score, and return it.
 
     This word should be calculated by considering all the words
@@ -23,28 +23,25 @@ def compChooseWord(hand, wordList, n):
 
     returns: string or None
     """
-    # BEGIN PSEUDOCODE <-- Remove this comment when you code this function; do your coding within the pseudocode (leaving those comments in-place!)
-    # Create a new variable to store the maximum score seen so far (initially 0)
 
-    # Create a new variable to store the best word seen so far (initially None)
+    max_score = 0
+    best_word = None
 
-    # For each word in the wordList
+    for word in wordList:
+        print(word)
+        if isValidWord(word, hand, wordList):
+            word_score = getWordScore(word, n)
+            if word_score > max_score:
+                max_score = word_score
+                best_word = word
 
-    # If you can construct the word from your hand
-    # (hint: you can use isValidWord, or - since you don't really need to test if the word is in the wordList - you can make a similar function that omits that test)
-
-    # Find out how much making that word is worth
-
-    # If the score for that word is higher than your best score
-
-    # Update your best score, and best word accordingly
-
-    # return the best word you found.
-
+    return best_word
 
 #
 # Problem #7: Computer plays a hand
 #
+
+
 def compPlayHand(hand, wordList, n):
     """
     Allows the computer to play the given hand, following the same procedure
@@ -99,9 +96,5 @@ def playGame(wordList):
     print("playGame not yet implemented.")
 
 
-#
-# Build data structures used for entire session and play game
-#
-if __name__ == '__main__':
-    wordList = loadWords()
-    playGame(wordList)
+wordList = loadWords()
+playGame(wordList)
