@@ -112,6 +112,34 @@ def playGame(wordList):
     wordList: list (string)
     """
 
+    # I am aware how messy this is, but I have a headache :)
+    currentHand = {}
+
+    while True:
+        game_type = raw_input(
+            'Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
+        if game_type == 'r' and calculateHandlen(currentHand) == 0:
+            print('You have not played a hand yet. Please play a new hand first!')
+        elif game_type == 'r':
+            playHand(currentHand, wordList, HAND_SIZE)
+        elif game_type == 'n':
+            computer_or_human = None
+            currentHand = dealHand(HAND_SIZE)
+            while computer_or_human is not 'u' or 'c':
+                computer_or_human = raw_input(
+                    'Enter u to have yourself play, c to have the computer play: ')
+
+                if computer_or_human == 'u':
+                    playHand(currentHand, wordList, HAND_SIZE)
+                elif computer_or_human == 'c':
+                    compPlayHand(currentHand, wordList, HAND_SIZE)
+        elif game_type == 'e':
+            raise SystemExit()
+        else:
+            print('Invalid command.')
+
+        print
+
     print("playGame not yet implemented.")
 
 
