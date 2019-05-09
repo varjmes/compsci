@@ -28,7 +28,6 @@ def compChooseWord(hand, wordList, n):
     best_word = None
 
     for word in wordList:
-        print(word)
         if isValidWord(word, hand, wordList):
             word_score = getWordScore(word, n)
             if word_score > max_score:
@@ -45,13 +44,13 @@ def compChooseWord(hand, wordList, n):
 def compPlayHand(hand, wordList, n):
     """
     Allows the computer to play the given hand, following the same procedure
-    as playHand, except instead of the user choosing a word, the computer 
+    as playHand, except instead of the user choosing a word, the computer
     chooses it.
 
     1) The hand is displayed.
     2) The computer chooses a word.
-    3) After every valid word: the word and the score for that word is 
-    displayed, the remaining letters in the hand are displayed, and the 
+    3) After every valid word: the word and the score for that word is
+    displayed, the remaining letters in the hand are displayed, and the
     computer chooses another word.
     4)  The sum of the word scores is displayed when the hand finishes.
     5)  The hand finishes when the computer has exhausted its possible
@@ -61,6 +60,26 @@ def compPlayHand(hand, wordList, n):
     wordList: list (string)
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     """
+
+    total_score = 0
+
+    while calculateHandlen(hand) > 0:
+        print('Current Hand:'),
+        displayHand(hand)
+        print
+        word = compChooseWord(hand, wordList, n)
+
+        if word:
+            score = getWordScore(word, n)
+            total_score += score
+            hand = updateHand(hand, word)
+            print('"{}" earned {} points. Total: {} points'.format(
+                word, score, total_score))
+        else:
+            print('Total score: {}'.format(total_score))
+            break
+
+        print
 
 #
 # Problem #8: Playing a game
