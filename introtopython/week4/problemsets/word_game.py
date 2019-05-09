@@ -128,7 +128,6 @@ def displayHand(hand):
     for letter in hand.keys():
         for _ in range(hand[letter]):
             print(letter),              # print all on the same line
-    print                         # print an empty line
 
 #
 # Problem #2: Make sure you understand how this function works and what it does!
@@ -254,30 +253,30 @@ def playHand(hand, wordList, n):
 
     """
     # Keep track of the total score
+    total_score = 0
 
     # As long as there are still letters left in the hand:
+    while calculateHandlen(hand) > 0:
+        print('Current Hand:'),
+        displayHand(hand)
+        print
+        word = raw_input('Enter word, or a "." to indicate you are finished: ')
+        if word == ".":
+            print('Goodbye! Total score: {}'.format(total_score))
+            break
+        else:
+            if isValidWord(word, hand, wordList):
+                score = getWordScore(word, n)
+                total_score += score
+                hand = updateHand(hand, word)
+                print('"{}" earned {} points. Total: {} points'.format(word, score, total_score))
+            else:
+                print('Invalid word, please try again.')
 
-    # Display the hand
-
-    # Ask user for input
-
-    # If the input is a single period:
-
-    # End the game (break out of the loop)
-
-    # Otherwise (the input is not a single period):
-
-    # If the word is not valid:
-
-    # Reject invalid word (print a message followed by a blank line)
-
-    # Otherwise (the word is valid):
-
-    # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
-
-    # Update the hand
-
-    # Game is over (user entered a '.' or ran out of letters), so tell user the total score
+        print
+        
+    if calculateHandlen(hand) == 0:
+        print('Run out of letters. Total score: {}'.format(total_score))
 
 
 #
@@ -304,4 +303,5 @@ def playGame(wordList):
 #
 if __name__ == '__main__':
     wordList = loadWords()
-    playGame(wordList)
+    playHand({'n': 1, 'e': 1, 't': 1, 'a': 1, 'r': 1, 'i': 2}, wordList, 7)
+    # playGame(wordList)
