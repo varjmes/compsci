@@ -13,9 +13,19 @@ def myLog(x, b):
     logarithm = 0
 
     while (b ** logarithm) <= x:
-        if (b ** logarithm) == x:
-            return logarithm
-        else:
+        if not (b ** (logarithm + 1)) > x:
             logarithm += 1
+        else:
+            break
 
     return logarithm
+
+
+# 3
+print(myLog(27, 3))
+# 2
+print(myLog(26, 3))
+# 3
+print(myLog(28, 3))
+# 0
+print(myLog(4, 16))
