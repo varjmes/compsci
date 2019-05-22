@@ -170,8 +170,18 @@ def findBestShift(wordList, text):
     text: string
     returns: 0 <= int < 26
     """
-    # TODO
-    return "Not yet implemented."  # Remove this comment when you code the function
+
+    real_words = 0
+    best_shift = 0
+    for shift in range(0, 26):
+        shifted_text = applyShift(text, shift)
+        words = shifted_text.split()
+        valid_words = filter(lambda x: isWord(wordList, x), words)
+        if len(valid_words) > real_words:
+            real_words = len(valid_words)
+            best_shift = shift
+
+    return best_shift
 
 
 def decryptStory():
@@ -195,7 +205,7 @@ if __name__ == '__main__':
     # To test findBestShift:
     wordList = loadWords()
     s = applyShift('Hello, world!', 8)
-    # bestShift = findBestShift(wordList, s)
-    # assert applyShift(s, bestShift) == 'Hello, world!'
+    bestShift = findBestShift(wordList, s)
+    assert applyShift(s, bestShift) == 'Hello, world!'
     # To test decryptStory, comment the above four lines and uncomment this line:
     #    decryptStory()
