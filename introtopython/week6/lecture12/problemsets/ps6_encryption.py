@@ -156,10 +156,8 @@ def applyShift(text, shift):
     shift: amount to shift the text (0 <= int < 26)
     returns: text after being shifted by specified amount.
     """
-    # TODO.
-    # HINT: This is a wrapper function.
-    return "Not yet implemented."  # Remove this comment when you code the function
 
+    return applyCoder(text, buildCoder(shift))
 #
 # Problem 2: Decryption
 #
@@ -197,7 +195,7 @@ if __name__ == '__main__':
     # To test findBestShift:
     wordList = loadWords()
     s = applyShift('Hello, world!', 8)
-    bestShift = findBestShift(wordList, s)
-    assert applyShift(s, bestShift) == 'Hello, world!'
+    # bestShift = findBestShift(wordList, s)
+    # assert applyShift(s, bestShift) == 'Hello, world!'
     # To test decryptStory, comment the above four lines and uncomment this line:
     #    decryptStory()
