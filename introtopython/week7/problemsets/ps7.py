@@ -206,7 +206,31 @@ def makeTrigger(triggerMap, triggerType, params, name):
 
     Returns a new instance of a trigger (ex: TitleTrigger, AndTrigger).
     """
-    # TODO: Problem 11
+
+    if triggerType == "TITLE":
+        triggerMap[name] = TitleTrigger(params[0])
+
+    elif triggerType == "SUBJECT":
+        triggerMap[name] = SubjectTrigger(params[0])
+
+    elif triggerType == "SUMMARY":
+        triggerMap[name] = SummaryTrigger(params[0])
+
+    elif triggerType == "NOT":
+        triggerMap[name] = NotTrigger(triggerMap[params[0]])
+
+    elif triggerType == "AND":
+        triggerMap[name] = AndTrigger(
+            triggerMap[params[0]], triggerMap[params[1]])
+
+    elif triggerType == "OR":
+        triggerMap[name] = OrTrigger(
+            triggerMap[params[0]], triggerMap[params[1]])
+
+    elif triggerType == "PHRASE":
+        triggerMap[name] = PhraseTrigger(' '.join(params))
+
+    return triggerMap[name]
 
 
 def readTriggerConfig(filename):
@@ -253,19 +277,8 @@ SLEEPTIME = 60  # seconds -- how often we poll
 
 
 def main_thread(master):
-    # A sample trigger list - you'll replace
-    # this with something more configurable in Problem 11
     try:
-        # These will probably generate a few hits...
-        t1 = TitleTrigger("Obama")
-        t2 = SubjectTrigger("Romney")
-        t3 = PhraseTrigger("Election")
-        t4 = OrTrigger(t2, t3)
-        triggerlist = [t1, t4]
-
-        # TODO: Problem 11
-        # After implementing makeTrigger, uncomment the line below:
-        # triggerlist = readTriggerConfig("triggers.txt")
+        triggerlist = readTriggerConfig("triggers.txt")
 
         # **** from here down is about drawing ****
         frame = Frame(master)
