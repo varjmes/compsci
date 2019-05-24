@@ -156,11 +156,18 @@ class OrTrigger(Trigger):
 
 # TODO: PhraseTrigger
 
+class PhraseTrigger(Trigger):
+    def __init__(self, phrase):
+        self.phrase = phrase
+
+    def evaluate(self, story):
+        return self.phrase in story.getTitle() or self.phrase in story.getSubject() or self.phrase in story.getSummary()
 
 # ======================
 # Part 3
 # Filtering
 # ======================
+
 
 def filterStories(stories, triggerlist):
     """
