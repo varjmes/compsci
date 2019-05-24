@@ -47,7 +47,34 @@ def process(url):
 
 # Problem 1
 
-# TODO: NewsStory
+
+class NewsStory(object):
+    '''
+    A standard representation of a news item, which various items from
+    RSS Feeds will be mutated into.
+    '''
+
+    def __init__(self, guid, title, subject, summary, link):
+        self.guid = guid
+        self.title = title
+        self.subject = subject
+        self.summary = summary
+        self.link = link
+
+    def getGuid(self):
+        return self.guid
+
+    def getTitle(self):
+        return self.title
+
+    def getSubject(self):
+        return self.subject
+
+    def getSummary(self):
+        return self.summary
+
+    def getLink(self):
+        return self.link
 
 # ======================
 # Part 2
