@@ -4,6 +4,7 @@ Resources folk have sent me.
 
 - :orange_book: [The Imposters Handbook](https://bigmachine.io/products/the-imposters-handbook/)
 - :computer: [The Coding Train](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw)
+- :orange_book: [The Nature of Code](https://natureofcode.com/book/)
 - :ear: [Base CS Podcast](https://twitter.com/basecspodcast)
 - :computer: [Khan Academy: AP Computer Science Principles](https://www.khanacademy.org/computing/ap-computer-science-principles)
 - :orange_book: [SICP](http://sarabander.github.io/sicp/)
