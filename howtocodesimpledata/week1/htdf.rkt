@@ -8,7 +8,7 @@
 
 ; Signature, purpose, stub
 ;   Signature: Number -> Number
-;   Purpose: Produce two times the given numver
+;   Purpose: Produce two times the given number
 ;   Stub: (define (double n ) 0)
 ; Examples (wrapped in check-expect)
 ;   (check-expect (double 3) 6)
