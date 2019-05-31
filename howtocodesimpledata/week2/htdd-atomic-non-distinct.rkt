@@ -12,7 +12,6 @@
 ; 4. One or more examples of the data
 ; 5. A template for a 1 argument function operating on data of this type.
 
-
 ; CityName is String
 ; interp. the name of a city
 (define CN1 "London")
@@ -21,4 +20,4 @@
   (... city))
 
 ; Template rules used:
-; atomic non-distinct: String
+;   atomic non-distinct: String
