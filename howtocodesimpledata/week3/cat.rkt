@@ -57,7 +57,8 @@
   (big-bang cat                    ; Cat
             (on-tick advance-cat)  ; Cat -> Cat
             (to-draw render)       ; Cat -> Image
-            (on-key  handle-key))) ; Cat Key -> Cat
+            (on-key  handle-key)
+            (on-mouse handle-mouse))) ; Cat Key -> Cat
 
 ;; Cat -> Cat
 ;; produce the next cat, by advancing it one pixel to the right
@@ -79,3 +80,14 @@
 (check-expect (handle-key 10 "\r") 10)
 (define (handle-key cat key)
   (if (key=? key " ") 0 cat))
+
+;; Cat MouseEvent -> Cat
+;; advance the next cat to the x co-ord of a mouse click
+; (define (handle-mouse cat x y me) 0) ; stub
+(check-expect (handle-mouse 100 10 100 "button-down") 10)
+(check-expect (handle-mouse 100 10 200 "drag") 100)
+(check-expect (handle-mouse 100 100 300 "button-down") 100)
+
+(define (handle-mouse cat x y me)
+  (cond [(mouse=? me "button-down") x]
+        [else cat]))
