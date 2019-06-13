@@ -24,7 +24,7 @@
 ; it by reseting the countdown to ten when you press the spacebar.
 
 
-;; My world program  (make this more specific)
+;; A visual countdown from 0 to 10
 
 ;; =================
 ;; Constants:
@@ -39,17 +39,17 @@
 ;; =================
 ;; Data definitions:
 
-;; Countdown is Integer [FINISH, START]
+;; Countdown is Integer[0, 10]
 ;; interp. the number of seconds remaining in a countdown
 (define C1 10) ; start
 (define C2 5)  ; middle
 (define C3 0)  ; end
 
-;(define (fn-for-countdown start finish)
-;  (...start finish))
+;(define (fn-for-countdown countdown)
+;  (...countdown))
 
 ;; Template rules used:
-;;   - atomic non-distinct: Integer[FINISH, START]
+;;   - atomic non-distinct: Integer[0, 10]
 
 ;; =================
 ;; Functions:
@@ -58,10 +58,10 @@
 ;; start the world with (main 10)
 ;; 
 (define (main countdown)
-  (big-bang countdown                ; Countdown
-            (on-tick   count-down RATE)   ; Countdown -> Countdown
-            (to-draw   render)       ; Countdown -> Image
-            (on-key    handle-key))) ; Countdown KeyEvent -> Countdown
+  (big-bang countdown                   ; Countdown
+            (on-tick   count-down RATE) ; Countdown -> Countdown
+            (to-draw   render)          ; Countdown -> Image
+            (on-key    handle-key)))    ; Countdown KeyEvent -> Countdown
 
 ;; Countdown -> Countdown
 ;; produce the next countdown, by decreasing it by one as long as it is within the bounds of FINISH
