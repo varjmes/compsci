@@ -1,3 +1,5 @@
+#!/usr/binx/racket
+#lang htdp/bsl
 
 ;; cat-starter.rkt
 
