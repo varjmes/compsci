@@ -1,8 +1,6 @@
 #!/usr/binx/racket
 #lang htdp/bsl
 
-;; movie-starter.rkt
-
 ;; =================
 ;; Data definitions:
 
