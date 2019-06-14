@@ -18,3 +18,4 @@ Resources folk have sent me.
 - :orange_book: [Types and Programming Languages](https://www.cis.upenn.edu/~bcpierce/tapl/)
 - :computer: [CS50: Introduction to Computer Science](https://www.edx.org/course/cs50s-introduction-to-computer-science)
 - :orange_book: [But How Do It Know?](http://buthowdoitknow.com/)
+- :orange_book: [Make a language in one hour](https://beautifulracket.com/stacker/why-make-languages.html)
